@@ -1,0 +1,70 @@
+{
+    "name": "altwaireb/filament-title-and-slug",
+    "description": "Easy Permalink Slugs for the FilamentPHP Form Builder (PHP / Laravel / Livewire)",
+    "keywords": [
+        "altwaireb",
+        "laravel",
+        "filament-title-and-slug"
+    ],
+    "homepage": "https://github.com/altwaireb/filament-title-and-slug",
+    "support": {
+        "issues": "https://github.com/altwaireb/filament-title-and-slug/issues",
+        "source": "https://github.com/altwaireb/filament-title-and-slug"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdulmajeed Altwaireb",
+            "email": "altwaireb@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Altwaireb\\Filament\\": "src/",
+            "Altwaireb\\Filament\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Altwaireb\\Filament\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Altwaireb\\Filament\\FilamentServiceProvider"
+            ],
+            "aliases": {
+                "Filament": "Altwaireb\\Filament\\Facades\\Filament"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
