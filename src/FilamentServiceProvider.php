@@ -31,38 +31,31 @@ class FilamentServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-//        $package->name(static::$name)
-//            ->hasCommands($this->getCommands())
-//            ->hasInstallCommand(function (InstallCommand $command) {
-//                $command
-//                    ->publishConfigFile()
-//                    ->publishMigrations()
-//                    ->askToRunMigrations()
-//                    ->askToStarRepoOnGitHub('altwaireb/filament-title-and-slug');
-//            });
+        $package->name(static::$name)
+            ->hasCommands($this->getCommands())
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->publishConfigFile()
+                    ->askToStarRepoOnGitHub('altwaireb/filament-title-and-slug');
+            });
 
-        $package->name('filament-title-and-slug')
-            ->hasConfigFile('title-and-slug')
-            ->hasViews()
-            ->hasTranslations();
+        $configFileName = $package->shortName();
 
-//        $configFileName = $package->shortName();
-//
-//        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-//            $package->hasConfigFile();
-//        }
+        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+            $package->hasConfigFile();
+        }
 
 //        if (file_exists($package->basePath('/../database/migrations'))) {
 //            $package->hasMigrations($this->getMigrations());
 //        }
 
-//        if (file_exists($package->basePath('/../resources/lang'))) {
-//            $package->hasTranslations();
-//        }
+        if (file_exists($package->basePath('/../resources/lang'))) {
+            $package->hasTranslations();
+        }
 
-//        if (file_exists($package->basePath('/../resources/views'))) {
-//            $package->hasViews(static::$viewNamespace);
-//        }
+        if (file_exists($package->basePath('/../resources/views'))) {
+            $package->hasViews(static::$viewNamespace);
+        }
     }
 
 
