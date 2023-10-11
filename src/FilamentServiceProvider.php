@@ -2,19 +2,21 @@
 
 namespace Altwaireb\Filament;
 
-use Filament\Support\Assets\AlpineComponent;
+//use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
-use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
+
+//use Filament\Support\Facades\FilamentIcon;
+//use Illuminate\Filesystem\Filesystem;
+//use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Altwaireb\Filament\Commands\FilamentCommand;
-use Altwaireb\Filament\Testing\TestsFilament;
+
+//use Altwaireb\Filament\Testing\TestsFilament;
 
 class FilamentServiceProvider extends PackageServiceProvider
 {
@@ -45,9 +47,9 @@ class FilamentServiceProvider extends PackageServiceProvider
             $package->hasConfigFile();
         }
 
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
-        }
+//        if (file_exists($package->basePath('/../database/migrations'))) {
+//            $package->hasMigrations($this->getMigrations());
+//        }
 
         if (file_exists($package->basePath('/../resources/lang'))) {
             $package->hasTranslations();
@@ -70,25 +72,25 @@ class FilamentServiceProvider extends PackageServiceProvider
             $this->getAssetPackageName()
         );
 
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
-            $this->getAssetPackageName()
-        );
+//        FilamentAsset::registerScriptData(
+//            $this->getScriptData(),
+//            $this->getAssetPackageName()
+//        );
 
         // Icon Registration
-        FilamentIcon::register($this->getIcons());
+//        FilamentIcon::register($this->getIcons());
 
         // Handle Stubs
-        if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/filament-title-and-slug/{$file->getFilename()}"),
-                ], 'filament-title-and-slug-stubs');
-            }
-        }
+//        if (app()->runningInConsole()) {
+//            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+//                $this->publishes([
+//                    $file->getRealPath() => base_path("stubs/filament-title-and-slug/{$file->getFilename()}"),
+//                ], 'filament-title-and-slug-stubs');
+//            }
+//        }
 
         // Testing
-        Testable::mixin(new TestsFilament());
+//        Testable::mixin(new TestsFilament());
     }
 
     protected function getAssetPackageName(): ?string
@@ -121,34 +123,34 @@ class FilamentServiceProvider extends PackageServiceProvider
     /**
      * @return array<string>
      */
-    protected function getIcons(): array
-    {
-        return [];
-    }
+//    protected function getIcons(): array
+//    {
+//        return [];
+//    }
 
     /**
      * @return array<string>
      */
-    protected function getRoutes(): array
-    {
-        return [];
-    }
+//    protected function getRoutes(): array
+//    {
+//        return [];
+//    }
 
     /**
      * @return array<string, mixed>
      */
-    protected function getScriptData(): array
-    {
-        return [];
-    }
+//    protected function getScriptData(): array
+//    {
+//        return [];
+//    }
 
     /**
      * @return array<string>
      */
-    protected function getMigrations(): array
-    {
-        return [
-            'create_filament-title-and-slug_table',
-        ];
-    }
+//    protected function getMigrations(): array
+//    {
+//        return [
+//            'create_filament-title-and-slug_table',
+//        ];
+//    }
 }
