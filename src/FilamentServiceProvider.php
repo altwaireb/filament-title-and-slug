@@ -42,7 +42,7 @@ class FilamentServiceProvider extends PackageServiceProvider
         $configFileName = $package->shortName();
 
         if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
+            $package->hasConfigFile($configFileName);
         }
 
 //        if (file_exists($package->basePath('/../database/migrations'))) {
