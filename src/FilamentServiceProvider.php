@@ -105,7 +105,7 @@ class FilamentServiceProvider extends PackageServiceProvider
         return [
             // AlpineComponent::make('filament-title-and-slug', __DIR__ . '/../resources/dist/components/filament-title-and-slug.js'),
             Css::make('filament-title-and-slug-styles', __DIR__ . '/../resources/dist/filament-title-and-slug.css'),
-            Js::make('filament-title-and-slug-scripts', __DIR__ . '/../resources/dist/filament-title-and-slug.js'),
+//            Js::make('filament-title-and-slug-scripts', __DIR__ . '/../resources/dist/filament-title-and-slug.js'),
         ];
     }
 
