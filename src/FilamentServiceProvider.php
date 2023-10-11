@@ -42,7 +42,7 @@ class FilamentServiceProvider extends PackageServiceProvider
 //            });
 
         $package->name('filament-title-and-slug')
-            ->hasConfigFile()
+            ->hasConfigFile('title-and-slug')
             ->hasViews()
             ->hasTranslations();
 
