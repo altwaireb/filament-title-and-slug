@@ -61,6 +61,9 @@ class FilamentServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/config/title-and-slug.php','title-and-slug'
+        );
     }
 
     public function packageBooted(): void
