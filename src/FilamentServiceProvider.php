@@ -26,44 +26,46 @@ class FilamentServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
+
+        $package->name(static::$name)
+            ->hasConfigFile('title-and-slug')
+            ->hasTranslations()
+            ->hasViews(static::$viewNamespace);
         /*
          * This class is a Package Service Provider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package->name(static::$name)
-            ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->askToStarRepoOnGitHub('altwaireb/filament-title-and-slug');
-            });
-
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile($configFileName);
-        }
+//        $package->name(static::$name)
+//            ->hasCommands($this->getCommands())
+//            ->hasInstallCommand(function (InstallCommand $command) {
+//                $command
+//                    ->publishConfigFile()
+//                    ->askToStarRepoOnGitHub('altwaireb/filament-title-and-slug');
+//            });
+//
+//        $configFileName = $package->shortName();
+//
+//        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+//            $package->hasConfigFile($configFileName);
+//        }
 
 //        if (file_exists($package->basePath('/../database/migrations'))) {
 //            $package->hasMigrations($this->getMigrations());
 //        }
 
-        if (file_exists($package->basePath('/../resources/lang'))) {
-            $package->hasTranslations();
-        }
-
-        if (file_exists($package->basePath('/../resources/views'))) {
-            $package->hasViews(static::$viewNamespace);
-        }
+//        if (file_exists($package->basePath('/../resources/lang'))) {
+//            $package->hasTranslations();
+//        }
+//
+//        if (file_exists($package->basePath('/../resources/views'))) {
+//            $package->hasViews(static::$viewNamespace);
+//        }
     }
 
 
     public function packageRegistered(): void
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/config/title-and-slug.php','title-and-slug'
-        );
     }
 
     public function packageBooted(): void
